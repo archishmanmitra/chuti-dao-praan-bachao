@@ -1,8 +1,8 @@
 import './App.css'
-import Hero from './assets/components/Hero'
-import Card from './assets/components/Card'
-import Marquee from './assets/components/Marquee'
-import Form from './assets/components/Form'
+import Hero from './components/Hero'
+import Card from './components/Card'
+import Marquee from './components/Marquee'
+import Form from './components/Form'
 import LocomotiveScroll from 'locomotive-scroll';
 function App() {
   const locomotiveScroll = new LocomotiveScroll();
