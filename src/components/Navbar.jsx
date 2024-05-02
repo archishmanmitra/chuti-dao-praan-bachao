@@ -3,16 +3,19 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoSunny } from "react-icons/io5";
 
 const Navbar = () => {
-  let theme = false;
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  let theme = false;  
+  //smooth scroll effect 
+  let scrolling=document.querySelectorAll('a[href^="#"]')
+  scrolling.forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
 
       document.querySelector(this.getAttribute("href")).scrollIntoView({
         behavior: "smooth"
-      });
+      }); 
     });
   });
+  //hide the navbar effect
   const nav = document.querySelector("#navvu");
   let lastScrollY = window.scrollY;
   window.addEventListener("scroll", () => {

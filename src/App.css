@@ -143,6 +143,9 @@ nav{
    transition: transform ease-in-out 0.2s;
 
 }
+.hide-the-nav{
+    transform: translateY(-6.25rem);
+}
 nav ul{
     display: flex;
     list-style-type: none;
@@ -460,7 +463,4 @@ nav .theme{
 .footer h4{
     color: var(--medium);
     font-weight: 500;
-}
-.hide-the-nav{
-    transform: translateY(-6.25rem);
 }
