@@ -9,7 +9,7 @@ const Navbar = () => {
       e.preventDefault();
 
       document.querySelector(this.getAttribute("href")).scrollIntoView({
-        behavior: "smooth", 
+        behavior: "smooth",
       });
     });
   });
@@ -18,7 +18,6 @@ const Navbar = () => {
   window.addEventListener("scroll", () => {
     if (lastScrollY < window.scrollY) {
       nav.classList.add("hide-the-nav");
-    //   console.log("working"); 
     } else {
       nav.classList.remove("hide-the-nav");
     }
@@ -48,7 +47,7 @@ const Navbar = () => {
       <div className="right-section">
         <a href="" className="theme">
           {theme ? (
-            <GiHamburgerMenu size={30} className="icon" color="#054053"/>
+            <GiHamburgerMenu size={30} className="icon" color="#054053" />
           ) : (
             <IoSunny className="icon" size={30} color="#054053" />
           )}
