@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { GiFist } from "react-icons/gi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoSunny } from "react-icons/io5";
@@ -16,18 +17,29 @@ const Navbar = () => {
     });
   });
   //hide the navbar effect
-  const nav = document.querySelector("#navvu");
-  let lastScrollY = window.scrollY;
-  window.addEventListener("scroll", () => {
+  const [show,setShow] = useState (false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  // const nav = document.querySelector("#navvu");
+  // let lastScrollY = window.scrollY;
+  const controlNav=()=>{
     if (lastScrollY < window.scrollY) {
-      nav.classList.add("hide-the-nav");
+      setShow(true);
     } else {
-      nav.classList.remove("hide-the-nav");
+      setShow(false);
     }
-    lastScrollY = window.scrollY;
-  });
+    // lastScrollY = window.scrollY;
+    setLastScrollY(window.scrollY);
+  } 
+  
+  useEffect(()=>{
+    window.addEventListener("scroll", controlNav);
+    return () => {
+      window.removeEventListener('scroll', controlNav);
+   };
+  },[lastScrollY])
+
   return (
-    <nav id="navvu">
+    <nav className={`navvu ${show && 'hide-the-nav'}`}>
       <div className="left-section">
         <GiFist size={40} className="iconic" color="#054053" />
         <a href="">
