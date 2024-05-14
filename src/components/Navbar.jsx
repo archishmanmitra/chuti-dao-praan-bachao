@@ -2,9 +2,16 @@ import { useEffect, useState } from "react";
 import { GiFist } from "react-icons/gi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoSunny } from "react-icons/io5";
+import { ImCross } from "react-icons/im";
+
 
 const Navbar = () => {
-  let theme = false;  
+  let theme = false;
+  if(window.matchMedia("(max-width: 900px)").matches) {
+    theme =true;
+  } 
+  const [showcross, setShowcross] = useState(false);
+  const [sidenav, setSidenav] = useState(false);
   //smooth scroll effect 
   let scrolling=document.querySelectorAll('a[href^="#"]')
   scrolling.forEach((anchor) => {
@@ -38,6 +45,12 @@ const Navbar = () => {
    };
   },[lastScrollY])
 
+  const handleMenu = ()=>{
+    setSidenav(true);
+    setShowcross(true);
+  }
+
+  
   return (
     <nav className={`navvu ${show && 'hide-the-nav'}`}>
       <div className="left-section">
@@ -47,7 +60,9 @@ const Navbar = () => {
         </a>
       </div>
       <div className="middle-section">
-        <ul>
+        <ul onClick={()=>{
+          setSidenav(false);
+        }} className={`ull ${sidenav && 'resp'}`}>
           <a href="#home">
             <li>HOME</li>
           </a>
@@ -60,13 +75,15 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="right-section">
-        <a href="" className="theme">
+        <a  className="theme" onClick={handleMenu}>
           {theme ? (
             <GiHamburgerMenu size={30} className="icon" color="#054053" />
           ) : (
             <IoSunny className="icon" size={30} color="#054053" />
           )}
         </a>
+        <ImCross className={`icon cross ${showcross && 'scross'} `} size={30} color="#ffffff"/>
+
       </div>
     </nav>
   );

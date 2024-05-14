@@ -44,8 +44,25 @@ body{
     }
 }
 @media (width<=900px){
+    nav ul{
+        position: fixed;
+        /* z-index: 50;  */
+        inset: 0 ;
+        width: 100vw;
+        flex-direction: column;
+        background-color: var(--medium);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(-100vh);
+    }
+    .resp{
+        transform: none;
+    }
     nav li{
-        display: none;
+        color: var(--white);
+        font-size: 2rem;
+
     }
     .hero-container h3{
         font-size: 0.7rem !important;
@@ -127,7 +144,16 @@ body{
         display: none !important;
     }
 }
-
+.scross{
+    position: fixed;
+    z-index: 60;
+    top: 10vh;
+    right: 10vw;
+    display: block;
+}
+.cross{
+    display: none;
+}
 nav{
     display: flex;
     justify-content: space-between;
